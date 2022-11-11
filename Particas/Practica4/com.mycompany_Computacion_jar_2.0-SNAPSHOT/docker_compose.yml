@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+    
+    postgres:
+        imagen: postgres
+        restart: always
+        ports:
+            -"5432:5432"
+            
+        eviroment:
+            - DATABASE_HOST=127.0.0.1
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=Holamundo de la programacion Encora
+            - POSTGRES_DB=computacion
+    pgadmin:
+        image: dpag/pgadmin4
+        enviroment:
+            PGADMIN_DEFAULT_EMAIL:"a18003891@gmail.com"
+            PGADMIN_DEFAULT_PASSWORD:"a18003891@gmail.com"
+        ports:
+            - "80:80"
+        depends_on:
+            - postgres
